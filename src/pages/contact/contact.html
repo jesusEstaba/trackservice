@@ -9,6 +9,7 @@
 <ion-content>
   <div>
     <b>Latitude: {{latitude}}</b>
+    <h3 *ngIf="activated">ACTIVATED</h3>
   </div>
   <button ion-button round block (click)="getGeo()">get</button>
 </ion-content>
