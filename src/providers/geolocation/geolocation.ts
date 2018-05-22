@@ -8,6 +8,9 @@ export class GeolocationProvider {
   constructor(private geolocation: Geolocation) {}
 
   public getGeolocation(fn) {
+    fn({
+        "latitude": "init"
+      });
     this.geolocation.getCurrentPosition().then((resp) => {
      fn(resp.coords);
     }).catch((error) => {
