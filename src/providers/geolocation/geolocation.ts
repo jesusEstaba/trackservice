@@ -11,7 +11,12 @@ export class GeolocationProvider {
     this.geolocation.getCurrentPosition().then((resp) => {
      fn(resp.coords);
     }).catch((error) => {
-      console.log('Error getting location', error);
+      fn({
+        "latitude": error.message
+      });
+      
+      //throw new Error(error);
+      
     });
   }
 
