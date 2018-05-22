@@ -13,6 +13,8 @@ export class ContactPage {
   constructor(public navCtrl: NavController, public geo:GeolocationProvider) {}
   
   getGeo() {
+    this.latitude = 'loading';
+    
     this.geo.getGeolocation(coords => {
       this.latitude = coords.latitude
     });
