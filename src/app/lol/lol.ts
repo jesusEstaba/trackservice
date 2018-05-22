@@ -1,34 +1,22 @@
 import { Component } from '@angular/core';
-
-/**
- * Generated class for the LolComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
- import { ClientsProvider } from '../../providers/clients/clients';
+import { ClientsProvider } from '../../providers/clients/clients';
  
 @Component({
   selector: 'lol',
   templateUrl: 'lol.html',
   providers: [ClientsProvider]
 })
-export class LolComponent {
 
+export class LolComponent {
   private drivers:Array<any> = [];
 
-  constructor(private clientsProvider:ClientsProvider)
-  {
-    this
-      .clientsProvider
-      .getClients()
-      .subscribe(response => {
-          this.drivers = response.clients;
-      });
+  constructor(private clientsProvider:ClientsProvider) {
+    this.clientsProvider.getClients(clients => {
+        this.drivers = clients;
+    });
   }
   
-  public howIs(user:any){
+  public howIs(user:any) {
     console.log(user.name);
   }
-
 }
