@@ -1,14 +1,21 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { GeolocationProvider } from '../../providers/geolocation/geolocation';
 
 @Component({
   selector: 'page-contact',
-  templateUrl: 'contact.html'
+  templateUrl: 'contact.html',
+  providers: [GeolocationProvider]
 })
 export class ContactPage {
-
-  constructor(public navCtrl: NavController) {
-
+  public latitude:any;
+  
+  constructor(public navCtrl: NavController, public geo:GeolocationProvider) {}
+  
+  getGeo() {
+    this.geo.getGeolocation(coords => {
+      this.latitude = coords.latitude
+    });
   }
 
 }
