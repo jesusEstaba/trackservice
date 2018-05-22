@@ -1,3 +1,11 @@
 page-about {
 
 }
+.user {
+    border:1px solid #b2b2b2;
+    border-top:none;
+}
+
+.user:first-child{
+    border-top:1px solid #b2b2b2;
+}

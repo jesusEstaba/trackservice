@@ -1,11 +1,24 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      Registro
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+  <div class="form">
+    <ion-img width="100" height="100" (click)="upload()" src="{{img}}"></ion-img>
+    <ion-item>
+    <ion-label color="primary" stacked>Email</ion-label>
+    <ion-input type="email" placeholder="Email" [(ngModel)]="email"></ion-input>
+  </ion-item>
+    <ion-item>
+    <ion-label color="primary" stacked>Password</ion-label>
+    <ion-input type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+  </ion-item>
+  <br />
+  <button (click)="submit()" ion-button round block>Register</button>
+  
+  </div>
 </ion-content>

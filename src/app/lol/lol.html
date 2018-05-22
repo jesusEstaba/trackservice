@@ -1,0 +1,17 @@
+<div>
+    <div *ngFor="let driver of drivers" class="user">
+    <div (click)="howIs(driver)">
+        <ion-grid>
+        <ion-row>
+          <ion-col col-3>
+            <ion-img width="100" height="100" src="/assets/imgs/logo.png"></ion-img>
+          </ion-col>
+          <ion-col>
+            <h2>{{driver.name}}</h2>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+  </div>
+</div>
