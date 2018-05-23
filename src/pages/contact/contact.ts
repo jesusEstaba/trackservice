@@ -10,6 +10,7 @@ import { GeolocationProvider } from '../../providers/geolocation/geolocation';
 export class ContactPage {
   public latitude:any;
   public longitude:any;
+  public distance:any;
   
   public activated:boolean = false;
   public message:any='fresh';
