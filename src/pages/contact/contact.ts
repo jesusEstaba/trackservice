@@ -12,6 +12,8 @@ export class ContactPage {
   public longitude:any;
   public distance:any;
   
+  public coordsRealTime:any;
+  
   public activated:boolean = false;
   public message:any='fresh';
   
@@ -49,6 +51,12 @@ export class ContactPage {
       });
           
       
+    });
+  }
+  
+  getRealtime() {
+    this.geo.realtime(coords => {
+      this.coordsRealTime = coords;
     });
   }
 

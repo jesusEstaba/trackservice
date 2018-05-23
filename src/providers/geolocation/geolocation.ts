@@ -22,5 +22,12 @@ export class GeolocationProvider {
       
     });
   }
+  
+  public realtime(fn) {
+    let watch = this.geolocation.watchPosition();
+    watch.subscribe((data) => {
+      fn(data.coords);
+    });
+  }
 
 }

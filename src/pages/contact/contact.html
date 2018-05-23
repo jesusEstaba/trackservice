@@ -21,3 +21,14 @@
   </div>
   <button ion-button round block (click)="getGeo()">get</button>
 </ion-content>
+
+<ion-content>
+  
+  <hr>
+  <div *ngIf="coordsRealTime">
+    <b>Latitude: {{coordsRealTime.latitude}}</b>
+      <b>longitude: {{coordsRealTime.longitude}}</b>
+  </div>
+  <button *ngIf="!coordsRealTime" ion-button round block (click)="getRealtime()">get in realtime</button>
+</ion-content>
+
