@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { GeolocationProvider } from '../providers/geolocation/geolocation';
 
 import { Geolocation } from '@ionic-native/geolocation';
+import { SocketProvider } from '../providers/socket/socket';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     ClientsProvider,
     LoginProvider,
     GeolocationProvider,
-    Geolocation
+    Geolocation,
+    SocketProvider
   ]
 })
 export class AppModule {}
