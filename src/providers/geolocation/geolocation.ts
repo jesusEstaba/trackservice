@@ -9,13 +9,13 @@ export class GeolocationProvider {
 
   public getGeolocation(fn) {
     fn({
-        "latitude": "init"
+        "message": "init"
       });
     this.geolocation.getCurrentPosition().then((resp) => {
      fn(resp.coords);
     }).catch((error) => {
       fn({
-        "latitude": error.message
+        "message": error.message
       });
       
       //throw new Error(error);

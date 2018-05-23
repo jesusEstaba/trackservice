@@ -8,8 +8,16 @@
 
 <ion-content>
   <div>
-    <b>Latitude: {{latitude}}</b>
-    <h3 *ngIf="activated">ACTIVATED</h3>
+    <h3>My</h3>
+    <b *ngIf="message">{{message}}</b>
+    <div *ngIf="!message">
+      <b>Latitude: {{latitude}}</b>
+      <b>longitude: {{longitude}}</b>
+    </div>
+    
+    <b *ngIf="distance">Distance for BIT: {{distance}}</b>
+    <h4 *ngIf="activated">GEOLOCATION SEARCH ACTIVATED</h4>
+    
   </div>
   <button ion-button round block (click)="getGeo()">get</button>
 </ion-content>
