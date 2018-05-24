@@ -10,8 +10,12 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class LoginProvider {
 
-  constructor(public http: HttpClient) {
-    console.log('Hello LoginProvider Provider');
+  constructor(public http: HttpClient) {}
+  
+  attemp(credentials, fn) {
+    this.http.post('https://track-backend.now.sh/login', credentials).subscribe(res => {
+      fn(res);
+    });
   }
 
 }

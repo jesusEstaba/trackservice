@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Platform, Events, MenuController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,25 +17,49 @@ export class MyApp {
     TabsPage 
   ];
   
-  rootPage:any = LoginPage;
-  sidemenu:boolean;
+  private token:string = '';
+  private rootPage:any;
+  private sidemenu:boolean;
   
   constructor(
     platform: Platform, 
     statusBar: StatusBar, 
     splashScreen: SplashScreen,
-    events: Events
+    events: Events,
+    private storage: Storage
   ) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+    
+      storage.get('token').then((token) => {
+        if (!token) {
+          return this.rootPage = LoginPage;
+        }
+        
+        this.token = token;
+        this.rootPage = TabsPage;
+      });
     });
     
     events.subscribe('change-page', (page) => {
       this.rootPage = this.pages[page];
       this.sidemenu = true;
     });
+    
+    events.subscribe('login', (token) => {
+      this.token = token;
+      storage.set('token', token);
+    });
+    
+    events.subscribe('logout', (token) => {
+      this.token = '';
+      storage.remove('token');
+    });
   }
+  
+  
+  
 }

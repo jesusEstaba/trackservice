@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { GeolocationProvider } from '../providers/geolocation/geolocation';
 
 import { Geolocation } from '@ionic-native/geolocation';
+import { IonicStorageModule } from '@ionic/storage';
 import { SocketProvider } from '../providers/socket/socket';
 
 @NgModule({
@@ -35,7 +36,8 @@ import { SocketProvider } from '../providers/socket/socket';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -55,7 +57,8 @@ import { SocketProvider } from '../providers/socket/socket';
     LoginProvider,
     GeolocationProvider,
     Geolocation,
-    SocketProvider
+    SocketProvider,
+    LoginProvider
   ]
 })
 export class AppModule {}
