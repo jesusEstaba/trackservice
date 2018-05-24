@@ -1,0 +1,24 @@
+<ion-content padding>
+  <h3>Welcome!</h3>
+  <div class="form">
+    <ion-img style="display:block;margin:2em auto;" width="100" height="100" (click)="upload()" src="/assets/imgs/logo.png"></ion-img>
+    <ion-item>
+    <ion-label color="primary" stacked>Email</ion-label>
+    <ion-input type="email" placeholder="Email" [(ngModel)]="email"></ion-input>
+  </ion-item>
+    <ion-item>
+    <ion-label color="primary" stacked>Password</ion-label>
+    <ion-input type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+  </ion-item>
+  <br />
+  <button (click)="submit()" ion-button round block>Login</button>
+  <p style="text-align: center;">
+    <button ion-button round outline>
+      You not are register yet?
+    </button>
+    <button ion-button round outline>
+      Forgot you password?
+    </button>
+  </p>
+  </div>
+</ion-content>

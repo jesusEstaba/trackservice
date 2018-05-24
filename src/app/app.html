@@ -1,1 +1,9 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu *ngIf="sidemenu" [content]="mycontent">
+  <ion-content padding>
+    <ion-list>
+      <button ion-button block >Contract</button>
+      <button ion-button block outline>Provide</button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav #mycontent [root]="rootPage"></ion-nav>
